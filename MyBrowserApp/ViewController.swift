@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var urlTextView: UITextField!
     @IBOutlet weak var browserView: UIWebView!
@@ -20,18 +20,48 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.browserView.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         let urlString = "http://dotinstall.com"
         //let urlString = ""
         self.loadUrl(urlString: urlString)
-        
+        self.addBorder()
         
     }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        if let urlString = self.browserView.request?.url?.absoluteString{
+            self.urlTextView.text = urlString
+        }
+    }
+    
+    func addBorder(){
+        let topBorder = CALayer()
+        topBorder.frame = CGRect(x: 0.0, y: 0.0, width: self.browserView.frame.size.width, height: 1.0)
+        topBorder.backgroundColor = UIColor.lightGray.cgColor
+        self.browserView.layer.addSublayer(topBorder)
+    }
+    
+    func showAlert(_ message: String){
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
     
     func getValidUrl(urlString: String) -> URL? {
         print(urlString)
         if URL(string: urlString) == nil {
-            print("Invalid URL")
+            //print("Invalid URL")
+            self.showAlert("Invalid URL")
+            
             return nil
         }
         print("OK")
