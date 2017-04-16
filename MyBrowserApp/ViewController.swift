@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIWebViewDelegate {
+class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var urlTextView: UITextField!
     @IBOutlet weak var browserView: UIWebView!
@@ -25,6 +25,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.browserView.delegate = self
+        self.urlTextView.delegate = self
         self.browserActiveIndicator.hidesWhenStopped = true
     }
     
@@ -36,6 +37,21 @@ class ViewController: UIViewController, UIWebViewDelegate {
         self.loadUrl(urlString: urlString)
         self.addBorder()
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        print("aa")
+        
+        if textField != self.urlTextView {
+            return true
+        }
+        
+        if let urlString = textField.text {
+            self.loadUrl(urlString: urlString)
+        }
+        
+        return true
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
