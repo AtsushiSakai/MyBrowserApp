@@ -41,8 +41,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        print("aa")
-        
+    
         if textField != self.urlTextView {
             return true
         }
@@ -52,6 +51,16 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         }
         
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField != self.urlTextView {
+            return
+        }
+        
+        textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to:
+        textField.endOfDocument)
+        
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
@@ -85,6 +94,12 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         
     }
     
+    func appendScheme(_ urlString: String) -> String {
+        if URL(string: urlString)?.scheme == nil {
+            return "http://"+urlString
+        }
+        return urlString
+    }
     
     func getValidUrl(urlString: String) -> URL? {
         print(urlString)
@@ -95,7 +110,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
             return nil
         }
         print("OK")
-        return URL(string: urlString)
+        return URL(string: appendScheme(urlString))
     }
     
     func loadUrl(urlString: String){
