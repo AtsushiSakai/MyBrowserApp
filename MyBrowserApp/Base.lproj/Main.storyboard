@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -48,15 +49,20 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5g2-MI-fbU">
+                                <rect key="frame" x="334" y="35" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="5g2-MI-fbU" firstAttribute="centerY" secondItem="LCf-oK-rnl" secondAttribute="centerY" id="6tb-c7-0WL"/>
                             <constraint firstItem="Ge9-QK-7tb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8n4-dr-2fy"/>
                             <constraint firstItem="LCf-oK-rnl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="ABb-ZX-5DA"/>
                             <constraint firstItem="Ge9-QK-7tb" firstAttribute="top" secondItem="LCf-oK-rnl" secondAttribute="bottom" constant="10" id="FJN-LY-6gb"/>
                             <constraint firstAttribute="trailing" secondItem="Ge9-QK-7tb" secondAttribute="trailing" id="GXh-MN-42o"/>
                             <constraint firstItem="LCf-oK-rnl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="QBk-VG-k4N"/>
                             <constraint firstItem="Hbf-7P-TYE" firstAttribute="top" secondItem="Ge9-QK-7tb" secondAttribute="bottom" id="aan-Nv-Mwr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5g2-MI-fbU" secondAttribute="trailing" constant="5" id="b31-ww-bBA"/>
                             <constraint firstAttribute="trailing" secondItem="LCf-oK-rnl" secondAttribute="trailing" constant="10" id="bHe-TS-Qdf"/>
                             <constraint firstAttribute="trailing" secondItem="Hbf-7P-TYE" secondAttribute="trailing" id="kYI-bT-WlP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Hbf-7P-TYE" secondAttribute="bottom" id="sCZ-QT-0o4"/>
@@ -64,6 +70,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="browserActiveIndicator" destination="5g2-MI-fbU" id="kku-5J-4xr"/>
                         <outlet property="browserView" destination="Ge9-QK-7tb" id="gpV-iY-I6e"/>
                         <outlet property="urlTextView" destination="LCf-oK-rnl" id="FD8-KU-aSX"/>
                     </connections>
