@@ -102,15 +102,25 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
     }
     
     func getValidUrl(urlString: String) -> URL? {
-        print(urlString)
-        if URL(string: urlString) == nil {
+        let trimmed = urlString.trimmingCharacters(in: NSCharacterSet.whitespaces)
+        if URL(string: trimmed) == nil {
             //print("Invalid URL")
             self.showAlert("Invalid URL")
             
             return nil
         }
         print("OK")
-        return URL(string: appendScheme(urlString))
+        return URL(string: appendScheme(trimmed))
+    }
+    
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        if (error as! URLError).code == URLError.cancelled {
+            return
+        }
+        
+        self.showAlert("Network Error")
+        self.browserView.stopLoading()
+        self.browserActiveIndicator.stopAnimating()
     }
     
     func loadUrl(urlString: String){

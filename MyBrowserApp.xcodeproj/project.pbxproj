@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					D83D51A51EA27BD100A08B54 = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = RA5AD6ECF8;
 						ProvisioningStyle = Automatic;
 					};
 					D83D51B91EA27BD200A08B54 = {
@@ -414,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RA5AD6ECF8;
 				INFOPLIST_FILE = MyBrowserApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = git.MyBrowserApp;
@@ -426,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RA5AD6ECF8;
 				INFOPLIST_FILE = MyBrowserApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = git.MyBrowserApp;
@@ -507,6 +510,7 @@
 				D83D51D01EA27BD200A08B54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D83D51D11EA27BD200A08B54 /* Build configuration list for PBXNativeTarget "MyBrowserAppTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +519,7 @@
 				D83D51D31EA27BD200A08B54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D83D51D41EA27BD200A08B54 /* Build configuration list for PBXNativeTarget "MyBrowserAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +528,7 @@
 				D83D51D61EA27BD200A08B54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
