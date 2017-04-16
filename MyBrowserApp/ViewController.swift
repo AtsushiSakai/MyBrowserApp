@@ -12,9 +12,12 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var urlTextView: UITextField!
     @IBOutlet weak var browserView: UIWebView!
+    
+    
     @IBOutlet weak var backButton: UIBarButtonItem!
+    
     @IBOutlet weak var forwardButton: UIBarButtonItem!
-    @IBOutlet weak var reloadButton: UIBarButtonItem!
+    
     @IBOutlet weak var browserActiveIndicator: UIActivityIndicatorView!
     
     
@@ -44,6 +47,10 @@ class ViewController: UIViewController, UIWebViewDelegate {
             self.urlTextView.text = urlString
         }
         self.browserActiveIndicator.stopAnimating()
+        
+        self.backButton.isEnabled = self.browserView.canGoBack
+        self.forwardButton.isEnabled = self.browserView.canGoForward
+        
     }
     
     func addBorder(){
@@ -89,12 +96,19 @@ class ViewController: UIViewController, UIWebViewDelegate {
     }
 
     @IBAction func goBack(_ sender: Any) {
+        print("goback")
+        self.browserView.goBack()
     }
+    
 
     @IBAction func goForward(_ sender: Any) {
+        print("goForward")
+        self.browserView.goForward()
     }
 
     @IBAction func reload(_ sender: Any) {
+        print("reload")
+        self.browserView.reload()
     }
     
 

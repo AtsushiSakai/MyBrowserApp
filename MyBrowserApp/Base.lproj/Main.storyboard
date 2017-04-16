@@ -35,7 +35,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hbf-7P-TYE">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="←" id="h1V-7i-3AK"/>
+                                    <barButtonItem title="←" id="h1V-7i-3AK">
+                                        <connections>
+                                            <action selector="goBack:" destination="BYZ-38-t0r" id="L91-cW-jbE"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="→" id="iRP-3I-yWS">
                                         <connections>
                                             <action selector="goForward:" destination="BYZ-38-t0r" id="Wbf-Hy-gtu"/>
@@ -70,8 +74,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="h1V-7i-3AK" id="CtP-hj-Nas"/>
                         <outlet property="browserActiveIndicator" destination="5g2-MI-fbU" id="kku-5J-4xr"/>
                         <outlet property="browserView" destination="Ge9-QK-7tb" id="gpV-iY-I6e"/>
+                        <outlet property="forwardButton" destination="iRP-3I-yWS" id="5X3-gz-ECl"/>
                         <outlet property="urlTextView" destination="LCf-oK-rnl" id="FD8-KU-aSX"/>
                     </connections>
                 </viewController>
